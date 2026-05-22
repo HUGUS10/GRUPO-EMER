@@ -2,11 +2,48 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+  <!-- RESPONSIVE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
   <title>Group Emer | Ingeniería & Construcción</title>
-  <meta name="description" content="Group Emer - Consultoría en ingeniería, construcción, supervisión de obras, BIM. Lima, Perú.">
+
+  <meta name="description"
+        content="Group Emer - Consultoría en ingeniería, construcción, supervisión de obras, BIM y proyectos de infraestructura en Lima, Perú.">
+
+  <meta name="keywords"
+        content="ingeniería, construcción, BIM, supervisión de obras, arquitectura, Group Emer, Perú">
+
+  <meta name="author" content="Group Emer">
+
+  <!-- GOOGLE -->
+  <meta name="robots" content="index, follow">
+
+  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="imag/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- OPEN GRAPH (FACEBOOK / WHATSAPP) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Group Emer | Ingeniería & Construcción">
+  <meta property="og:description"
+        content="Consultoría en ingeniería, construcción y supervisión de obras en Perú.">
+  <meta property="og:image"
+        content="https://groupemer.online/imag/logo.png">
+  <meta property="og:url"
+        content="https://groupemer.online">
+
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Group Emer">
+  <meta name="twitter:description"
+        content="Ingeniería, construcción y supervisión de obras.">
+  <meta name="twitter:image"
+        content="https://groupemer.online/imag/logo.png">
+
+  <!-- FUENTES -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap"
+        rel="stylesheet">
   <style>
     *,
     *::before,
@@ -482,79 +519,106 @@
       border-radius: 16px;
     }
 
-    /* SERVICIOS */
+    /* SERVICIOS CUADRADOS + FOTOS NITIDAS */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 3px;
-      margin-top: 52px;
+      gap: 28px;
+      margin-top: 56px;
     }
 
     .srv-card {
-      padding: 44px 32px;
+      aspect-ratio: 1 / 1;
       background-size: cover;
       background-position: center;
-      transition: 0.35s;
-      border-radius: 32px;
+      background-repeat: no-repeat;
+      border-radius: 28px;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s;
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.2);
+    }
+
+    .srv-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 36px -12px rgba(0, 0, 0, 0.3);
     }
 
     .srv-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(244, 245, 248, 0.96);
-      transition: background 0.35s;
+      background: rgba(11, 21, 53, 0.35);
+      transition: background 0.3s ease;
       z-index: 0;
+      border-radius: 28px;
     }
 
     .srv-card:hover::before {
-      background: var(--navy);
+      background: rgba(0, 0, 0, 0.55);
     }
 
     .srv-inner {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px 24px;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
     .srv-icon {
-      width: 52px;
-      height: 52px;
-      border: 1px solid rgba(11, 21, 53, 0.15);
+      width: 56px;
+      height: 56px;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      border-radius: 16px;
-      overflow: hidden;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
     .srv-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(12%) sepia(34%) saturate(2200%) hue-rotate(205deg) brightness(95%) contrast(92%);
     }
 
     .srv-card h3 {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .srv-card:hover h3 {
-      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.2px;
+      color: white;
     }
 
     .srv-card p {
       font-size: 13px;
-      line-height: 1.6;
-      color: var(--gray);
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 90%;
     }
 
-    .srv-card:hover p {
-      color: rgba(255, 255, 255, 0.7);
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
     }
 
     /* BIM */
@@ -619,7 +683,7 @@
       z-index: 2;
     }
 
-    /* PORTAFOLIO CON FILTROS */
+    /* PORTAFOLIO */
     .filter-btns {
       display: flex;
       justify-content: center;
@@ -754,7 +818,7 @@
       gap: 16px;
     }
 
-    /* FOOTER MEJORADO (estilo Abril) */
+    /* FOOTER STICKERS */
     footer {
       background: #060d23;
       padding: 60px 6% 30px;
@@ -783,18 +847,32 @@
 
     .social-icons {
       display: flex;
-      gap: 16px;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
     .social-icons a {
-      color: rgba(255, 255, 255, 0.5);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 18px;
+      font-size: 26px;
       text-decoration: none;
-      font-size: 18px;
-      transition: color 0.2s;
+      color: var(--gold);
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 215, 120, 0.3);
     }
 
     .social-icons a:hover {
-      color: var(--gold);
+      background: var(--gold);
+      color: #060d23;
+      transform: translateY(-4px) scale(1.03);
+      border-color: var(--gold2);
     }
 
     .footer-col h4 {
@@ -833,11 +911,6 @@
 
     .horarios {
       margin-top: 24px;
-    }
-
-    .horarios p {
-      font-size: 12px;
-      margin-bottom: 6px;
     }
 
     .footer-legal {
@@ -914,7 +987,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
-    /* MODAL CLIENTE */
+    /* MODAL LOGIN/REGISTRO COMPLETO */
     .modal {
       display: none;
       position: fixed;
@@ -922,7 +995,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.8);
       z-index: 2000;
       align-items: center;
       justify-content: center;
@@ -932,64 +1005,98 @@
       background: var(--white);
       padding: 32px;
       border-radius: 32px;
-      max-width: 400px;
+      max-width: 420px;
       width: 90%;
       text-align: center;
+      position: relative;
+    }
+
+    .modal-content h3 {
+      font-family: 'DM Serif Display', serif;
+      margin-bottom: 18px;
+      color: var(--navy);
     }
 
     .modal-content input {
       width: 100%;
       padding: 12px;
-      margin: 12px 0;
-      border-radius: 20px;
+      margin: 10px 0;
+      border-radius: 28px;
       border: 1px solid #ccc;
+      font-family: inherit;
     }
 
-    /* COOKIE BANNER */
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--navy);
-      padding: 16px 6%;
+    .modal-tab {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      transform: translateY(100%);
-      transition: 0.3s;
-      flex-wrap: wrap;
       gap: 16px;
+      justify-content: center;
+      margin-bottom: 24px;
     }
 
-    .cookie-banner.show {
-      transform: translateY(0);
+    .modal-tab button {
+      background: transparent;
+      border: none;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 6px 16px;
+      border-radius: 40px;
+      transition: 0.2s;
+      color: var(--gray);
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
+    .modal-tab .active-tab {
+      background: var(--gold);
+      color: var(--navy);
+    }
 
-      #about,
-      .bim-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-      .services-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+    .auth-message {
+      font-size: 12px;
+      margin-top: 10px;
+      color: #e74c3c;
+    }
 
-      .port-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+    .close-modal-btn {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--gray);
+    }
 
-      .footer-main {
-        grid-template-columns: 1fr 1fr;
-      }
+    .user-welcome {
+      background: rgba(201, 168, 76, 0.2);
+      border-radius: 40px;
+      padding: 8px 16px;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+    }
+
+    .logout-btn {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      margin-left: 8px;
+      cursor: pointer;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 30px;
+      color: white;
     }
 
     @media (max-width: 768px) {
+
       .nav-links {
         display: none;
       }
@@ -998,27 +1105,13 @@
         display: flex;
       }
 
-      .services-grid,
       .port-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-stats {
-        gap: 24px;
-      }
-
-      .form-row {
         grid-template-columns: 1fr;
       }
 
       .footer-main {
         grid-template-columns: 1fr;
         text-align: center;
-      }
-
-      .footer-brand p {
-        margin-left: auto;
-        margin-right: auto;
       }
 
       .social-icons {
@@ -1040,7 +1133,6 @@
 </head>
 <body>
 
-  <!-- Navegación -->
   <nav id="nav">
     <a href="#hero" class="logo-wrap">
       <img src="imag/logo.png" class="logo-img" alt="Logo">
@@ -1056,11 +1148,9 @@
       <li><a href="#portafolio">Proyectos</a></li>
       <li><a href="#contacto" class="nav-cta">Contáctenos</a></li>
       <li><button class="theme-toggle" id="themeToggle">🌙</button></li>
-      <li><a href="#" id="clientBtn" style="background:rgba(201,168,76,0.2);border-radius:40px;padding:8px 16px;">🔐 Mi cuenta</a></li>
+      <li><a href="#" id="clientBtn" class="nav-cta" style="background:rgba(201,168,76,0.2);">🔐 Mi cuenta</a></li>
     </ul>
-    <button class="burger" id="burger">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
   </nav>
   <div class="mobile-nav" id="mobileNav">
     <a href="#about">Nosotros</a>
@@ -1077,438 +1167,193 @@
     <div class="hero-grid-overlay"></div>
     <div class="hero-gradient"></div>
     <div class="hero-content">
-      <div class="hero-tag">
-        <div class="hero-tag-dot"></div>
-        <span>Consultora de Ingeniería · Lima, Perú</span>
-      </div>
+      <div class="hero-tag"><div class="hero-tag-dot"></div><span>Consultora de Ingeniería · Lima, Perú</span></div>
       <h1 class="hero-title">Ingeniería que<br><em>transforma</em><br>proyectos en realidad</h1>
       <p class="hero-desc">Especialistas en formulación, gestión y supervisión de obras de edificación e infraestructura civil.</p>
-      <div class="hero-btns">
-        <a href="#servicios" class="btn-gold">Nuestros Servicios</a>
-        <a href="#contacto" class="btn-outline">Iniciar Proyecto</a>
-      </div>
-      <div class="hero-stats">
-        <div>
-          <div class="stat-num" id="yearsCounter">0</div>
-          <div class="stat-label">Años de experiencia</div>
-        </div>
-        <div>
-          <div class="stat-num" id="projectsCounter">0</div>
-          <div class="stat-label">Proyectos entregados</div>
-        </div>
-        <div>
-          <div class="stat-num" id="clientsCounter">0</div>
-          <div class="stat-label">Clientes satisfechos</div>
-        </div>
-      </div>
+      <div class="hero-btns"><a href="#servicios" class="btn-gold">Nuestros Servicios</a><a href="#contacto" class="btn-outline">Iniciar Proyecto</a></div>
+      <div class="hero-stats"><div><div class="stat-num" id="yearsCounter">0</div><div class="stat-label">Años de experiencia</div></div><div><div class="stat-num" id="projectsCounter">0</div><div class="stat-label">Proyectos entregados</div></div><div><div class="stat-num" id="clientsCounter">0</div><div class="stat-label">Clientes satisfechos</div></div></div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-img-col reveal">
-      <div class="about-img-frame"></div>
-      <div class="about-border-deco"></div>
-      <div class="about-accent-box"><strong>+5</strong><span>años de experiencia</span></div>
-    </div>
-    <div class="about-text-col reveal">
-      <div class="stag">Sobre Nosotros</div>
-      <h2 class="section-title">Soluciones integrales de ingeniería</h2>
-      <p class="about-p"><strong>Group Emer Engineers</strong> es una empresa de consultoría ubicada en Lima, especializada en la formulación y gestión de proyectos, así como en la supervisión de obras de edificación e infraestructura civil.</p>
-      <div class="pillars">
-        <div class="pillar">
-          <h4>Misión</h4>
-          <p>Soluciones exclusivas, integrales y eficientes que combinan funcionalidad y calidad técnica.</p>
-        </div>
-        <div class="pillar">
-          <h4>Visión</h4>
-          <p>Ser referente del sector ingeniería en el Perú, participando en los proyectos más representativos del país.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ABOUT, SERVICIOS, ETC -->
+  <section id="about"><div class="about-img-col reveal"><div class="about-img-frame"></div><div class="about-border-deco"></div><div class="about-accent-box"><strong>+5</strong><span>años de experiencia</span></div></div><div class="about-text-col reveal"><div class="stag">Sobre Nosotros</div><h2 class="section-title">Soluciones integrales de ingeniería</h2><p class="about-p"><strong>Group Emer Engineers</strong> es una empresa de consultoría ubicada en Lima, especializada en la formulación y gestión de proyectos, así como en la supervisión de obras de edificación e infraestructura civil.</p><div class="pillars"><div class="pillar"><h4>Misión</h4><p>Soluciones exclusivas, integrales y eficientes que combinan funcionalidad y calidad técnica.</p></div><div class="pillar"><h4>Visión</h4><p>Ser referente del sector ingeniería en el Perú, participando en los proyectos más representativos del país.</p></div></div></div></section>
 
-  <!-- SERVICIOS -->
   <section id="servicios">
-    <div class="reveal">
-      <div class="stag">Lo Que Ofrecemos</div>
-      <h2 class="section-title">Nuestros Servicios</h2>
-      <p class="section-sub">Cubrimos todas las etapas de tu proyecto, desde la concepción hasta la entrega final.</p>
-    </div>
+    <div class="reveal"><div class="stag">Lo Que Ofrecemos</div><h2 class="section-title">Nuestros Servicios</h2><p class="section-sub">Cubrimos todas las etapas de tu proyecto, desde la concepción hasta la entrega final.</p></div>
     <div class="services-grid">
-      <div class="srv-card" style="background-image:url('imag/civil.png')">
-        <div class="srv-inner">
-          <div class="srv-icon"><img src="imag/civil.png" alt="Diseño"></div>
-          <h3>Diseño</h3>
-          <p>Soluciones innovadoras de diseño integral.</p>
-        </div>
-      </div>
-      <div class="srv-card" style="background-image:url('imag/edificio.png')">
-        <div class="srv-inner">
-          <div class="srv-icon"><img src="imag/edificio.png" alt="Construcción"></div>
-          <h3>Construcción</h3>
-          <p>Construcción siguiendo estándares de calidad.</p>
-        </div>
-      </div>
-      <div class="srv-card" style="background-image:url('imag/consultoria.png')">
-        <div class="srv-inner">
-          <div class="srv-icon"><img src="imag/consultoria.png" alt="Consultoría"></div>
-          <h3>Consultoría</h3>
-          <p>Evaluación y soluciones eficientes.</p>
-        </div>
-      </div>
-      <div class="srv-card" style="background-image:url('imag/industriales.png')">
-        <div class="srv-inner">
-          <div class="srv-icon"><img src="imag/industriales.png" alt="Asistencia"></div>
-          <h3>Asistencia Técnica</h3>
-          <p>Apoyo de especialistas en construcción.</p>
-        </div>
-      </div>
+      <div class="srv-card" style="background-image:url('imag/civil.png')"><div class="srv-inner"><div class="srv-icon"><img src="imag/civil.png" alt="Diseño"></div><h3>Diseño</h3><p>Soluciones innovadoras de diseño integral.</p></div></div>
+      <div class="srv-card" style="background-image:url('imag/edificio.png')"><div class="srv-inner"><div class="srv-icon"><img src="imag/edificio.png" alt="Construcción"></div><h3>Construcción</h3><p>Construcción siguiendo estándares de calidad.</p></div></div>
+      <div class="srv-card" style="background-image:url('imag/consultoria.png')"><div class="srv-inner"><div class="srv-icon"><img src="imag/consultoria.png" alt="Consultoría"></div><h3>Consultoría</h3><p>Evaluación y soluciones eficientes.</p></div></div>
+      <div class="srv-card" style="background-image:url('imag/industriales.png')"><div class="srv-inner"><div class="srv-icon"><img src="imag/industriales.png" alt="Asistencia"></div><h3>Asistencia Técnica</h3><p>Apoyo de especialistas en construcción.</p></div></div>
     </div>
   </section>
 
-  <!-- BIM -->
-  <section id="bim">
-    <div class="bim-grid">
-      <div class="reveal">
-        <div class="stag">Tecnología Avanzada</div>
-        <h2 class="section-title light">Metodología <em style="color:var(--gold);">BIM</em></h2>
-        <p class="bim-p">Building Information Modeling integra a todos los participantes del proyecto desde las fases iniciales.</p>
-        <div class="bim-roles">
-          <div class="bim-role"><h4>BIM Modeler</h4><ul><li>Revisión de alcance</li><li>Creación y actualización del modelo</li><li>Coordinación con otras disciplinas</li></ul></div>
-          <div class="bim-role"><h4>BIM Coordinator</h4><ul><li>Matriz de responsabilidades</li><li>Clash test</li><li>Combinación de modelos</li></ul></div>
-          <div class="bim-role"><h4>BIM Manager</h4><ul><li>Estándares BIM</li><li>Gestión de flujo de información</li><li>Auditoría de calidad</li></ul></div>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="bim-visual">
-          <div class="bim-badge">
-            <div class="bim-badge-title">Coordinación 3D sin interferencias</div>
-            <p>Entregamos modelos As-Built digitales y garantizamos cero choques.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <section id="bim"><div class="bim-grid"><div class="reveal"><div class="stag">Tecnología Avanzada</div><h2 class="section-title light">Metodología <em style="color:var(--gold);">BIM</em></h2><p class="bim-p">Building Information Modeling integra a todos los participantes del proyecto desde las fases iniciales.</p><div class="bim-roles"><div class="bim-role"><h4>BIM Modeler</h4><ul><li>Revisión de alcance</li><li>Creación y actualización del modelo</li><li>Coordinación con otras disciplinas</li></ul></div><div class="bim-role"><h4>BIM Coordinator</h4><ul><li>Matriz de responsabilidades</li><li>Clash test</li><li>Combinación de modelos</li></ul></div><div class="bim-role"><h4>BIM Manager</h4><ul><li>Estándares BIM</li><li>Gestión de flujo de información</li><li>Auditoría de calidad</li></ul></div></div></div><div class="reveal"><div class="bim-visual"><div class="bim-badge"><div class="bim-badge-title">Coordinación 3D sin interferencias</div><p>Entregamos modelos As-Built digitales y garantizamos cero choques.</p></div></div></div></div></section>
 
-  <!-- PORTAFOLIO CON FILTROS -->
-  <section id="portafolio">
-    <div class="reveal">
-      <div class="stag">Nuestra Experiencia</div>
-      <h2 class="section-title">Proyectos Representativos</h2>
-      <p class="section-sub">Una muestra del trabajo que nos enorgullece.</p>
-    </div>
-    <div class="filter-btns">
-      <button class="filter-btn active" data-filter="all">Todos</button>
-      <button class="filter-btn" data-filter="edificacion">Edificación</button>
-      <button class="filter-btn" data-filter="infraestructura">Infraestructura</button>
-      <button class="filter-btn" data-filter="consultoria">Consultoría</button>
-    </div>
-    <div class="port-grid" id="portfolioGrid"></div>
-  </section>
+  <section id="portafolio"><div class="reveal"><div class="stag">Nuestra Experiencia</div><h2 class="section-title">Proyectos Representativos</h2><p class="section-sub">Una muestra del trabajo que nos enorgullece.</p></div><div class="filter-btns"><button class="filter-btn active" data-filter="all">Todos</button><button class="filter-btn" data-filter="edificacion">Edificación</button><button class="filter-btn" data-filter="infraestructura">Infraestructura</button><button class="filter-btn" data-filter="consultoria">Consultoría</button></div><div class="port-grid" id="portfolioGrid"></div></section>
+  <section style="background:var(--off);"><div class="reveal"><div class="stag">Testimonios</div><h2 class="section-title">Lo que dicen nuestros clientes</h2></div><div class="testimonios-slider" id="testimoniosSlider"></div></section>
+  <section><div class="reveal"><div class="stag">Preguntas Frecuentes</div><h2 class="section-title">Resolvemos tus dudas</h2></div><div class="faq-list" id="faqList"></div></section>
+  <section id="contacto" style="background:var(--navy);"><div class="reveal"><div class="stag">Hablemos</div><h2 class="section-title light">Inicia tu proyecto hoy</h2><p class="section-sub" style="color:rgba(255,255,255,0.45);">Cuéntanos tu idea y te ayudamos a convertirla en realidad.</p></div><div class="contact-grid"><div class="reveal"><div class="contact-info-item">📍 Calle Portada el Sol 2011, Santa Anita, Lima</div><div class="contact-info-item">📞 +51 935 419 810</div><div class="contact-info-item">✉️ info@groupemerengineers.pe</div><div class="map-wrap" style="margin-top:24px;"><iframe src="https://maps.google.com/maps?q=Santa+Anita+Lima&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="220" style="border:0; border-radius:24px;" allowfullscreen></iframe></div></div><div class="reveal"><form class="contact-form" id="contactForm"><div class="form-row"><input type="text" id="nombre" placeholder="Nombre completo" required><input type="tel" id="telefono" placeholder="Teléfono" required></div><input type="email" id="email" placeholder="Correo electrónico" required><select id="servicioSelect"><option value="">Tipo de servicio</option><option>Diseño</option><option>Construcción</option><option>Consultoría</option><option>BIM</option></select><textarea id="mensaje" placeholder="Cuéntanos sobre tu proyecto..." required rows="4"></textarea><input type="file" id="archivo" accept=".pdf,.jpg,.png"><button type="submit" class="btn-gold" style="margin-top:16px;">Enviar Consulta →</button></form></div></div></section>
 
-  <!-- TESTIMONIOS -->
-  <section style="background:var(--off);">
-    <div class="reveal">
-      <div class="stag">Testimonios</div>
-      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-    </div>
-    <div class="testimonios-slider" id="testimoniosSlider"></div>
-  </section>
+  <footer><div class="footer-main"><div class="footer-brand"><div class="logo-main">E<span>M</span>ER</div><div class="logo-sub" style="font-size:10px; margin-bottom:12px;">GRUPO INMOBILIARIO</div><p>Excelencia en ingeniería y bienes raíces. Desarrollamos proyectos que transforman vidas.</p><div class="social-icons"><a href="#">📘</a><a href="#">📸</a><a href="#">🔗</a><a href="#">▶️</a></div></div><div class="footer-col"><h4>Proyectos</h4><ul><li><a href="#portafolio">Departamentos</a></li><li><a href="#portafolio">Oficinas</a></li><li><a href="#portafolio">Próximos proyectos</a></li><li><a href="#about">Conócenos</a></li><li><a href="#">Post Venta</a></li></ul></div><div class="footer-col"><h4>Atención</h4><ul><li><a href="#">Inversionistas</a></li><li><a href="#">Compra de terrenos</a></li><li><a href="#contacto">Contáctanos</a></li><li><a href="#">Blog</a></li><li><a href="#">Protección al consumidor</a></li><li><a href="#">Libro de Reclamaciones</a></li></ul></div><div class="footer-col footer-contacto"><h4>Contacto</h4><p>📞 +51 935 419 810</p><p>✉️ info@groupemerengineers.pe</p><p>✉️ contacto@groupemer.pe</p><div class="horarios"><p><strong>Horario Call Center:</strong><br>Lun a Dom 8:30am – 7:30pm</p><p><strong>Horario Post Venta:</strong><br>Lun a Vie 8:30am – 5:30pm</p></div></div></div><div class="footer-legal"><div class="legal-links"><a href="#">Política de privacidad</a><a href="#">Términos y condiciones</a><a href="#">Libro de Reclamaciones</a><a href="#">Protección de datos</a></div><div class="disclaimer">Todas las imágenes, planos, medidas y áreas, son referenciales por lo que podrían sufrir cambios al momento de desarrollarse el proyecto, asimismo los elementos decorativos, acabados y mobiliarios son propuestas del departamento de diseño que no se incluyen en la oferta comercial y no comprometen a la empresa inmobiliaria.</div><p style="margin-top:24px;">© 2026 Grupo Emer Inmobiliario. Todos los derechos reservados.</p></div></footer>
 
-  <!-- FAQ -->
-  <section>
-    <div class="reveal">
-      <div class="stag">Preguntas Frecuentes</div>
-      <h2 class="section-title">Resolvemos tus dudas</h2>
-    </div>
-    <div class="faq-list" id="faqList"></div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" style="background:var(--navy);">
-    <div class="reveal">
-      <div class="stag">Hablemos</div>
-      <h2 class="section-title light">Inicia tu proyecto hoy</h2>
-      <p class="section-sub" style="color:rgba(255,255,255,0.45);">Cuéntanos tu idea y te ayudamos a convertirla en realidad.</p>
-    </div>
-    <div class="contact-grid">
-      <div class="reveal">
-        <div class="contact-info-item">📍 Calle Portada el Sol 2011, Santa Anita, Lima</div>
-        <div class="contact-info-item">📞 +51 935 419 810</div>
-        <div class="contact-info-item">✉️ info@groupemerengineers.pe</div>
-        <div class="map-wrap" style="margin-top:24px;">
-          <iframe src="https://maps.google.com/maps?q=Santa+Anita+Lima&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="220" style="border:0; border-radius:24px;" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="reveal">
-        <form class="contact-form" id="contactForm">
-          <div class="form-row">
-            <input type="text" id="nombre" placeholder="Nombre completo" required>
-            <input type="tel" id="telefono" placeholder="Teléfono" required>
-          </div>
-          <input type="email" id="email" placeholder="Correo electrónico" required>
-          <select id="servicioSelect">
-            <option value="">Tipo de servicio</option>
-            <option>Diseño</option>
-            <option>Construcción</option>
-            <option>Consultoría</option>
-            <option>BIM</option>
-          </select>
-          <textarea id="mensaje" placeholder="Cuéntanos sobre tu proyecto..." required rows="4"></textarea>
-          <input type="file" id="archivo" accept=".pdf,.jpg,.png">
-          <button type="submit" class="btn-gold" style="margin-top:16px;">Enviar Consulta →</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER MEJORADO (estilo Abril) -->
-  <footer>
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="logo-main">E<span>M</span>ER</div>
-        <div class="logo-sub" style="font-size:10px; margin-bottom:12px;">GRUPO INMOBILIARIO</div>
-        <p>Excelencia en ingeniería y bienes raíces. Desarrollamos proyectos que transforman vidas.</p>
-        <div class="social-icons">
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Instagram">📸</a>
-          <a href="#" aria-label="LinkedIn">🔗</a>
-          <a href="#" aria-label="YouTube">▶️</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Proyectos</h4>
-        <ul>
-          <li><a href="#portafolio">Departamentos</a></li>
-          <li><a href="#portafolio">Oficinas</a></li>
-          <li><a href="#portafolio">Próximos proyectos</a></li>
-          <li><a href="#about">Conócenos</a></li>
-          <li><a href="#">Post Venta</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Atención</h4>
-        <ul>
-          <li><a href="#">Inversionistas</a></li>
-          <li><a href="#">Compra de terrenos</a></li>
-          <li><a href="#contacto">Contáctanos</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Protección al consumidor</a></li>
-          <li><a href="#">Libro de Reclamaciones</a></li>
-        </ul>
-      </div>
-      <div class="footer-col footer-contacto">
-        <h4>Contacto</h4>
-        <p>📞 +51 935 419 810</p>
-        <p>✉️ info@groupemerengineers.pe</p>
-        <p>✉️ contacto@groupemer.pe</p>
-        <div class="horarios">
-          <p><strong>Horario Call Center:</strong><br>Lun a Dom 8:30am – 7:30pm</p>
-          <p><strong>Horario Post Venta:</strong><br>Lun a Vie 8:30am – 5:30pm</p>
-        </div>
-      </div>
-    </div>
-    <div class="footer-legal">
-      <div class="legal-links">
-        <a href="#">Política de privacidad</a>
-        <a href="#">Términos y condiciones</a>
-        <a href="#">Libro de Reclamaciones</a>
-        <a href="#">Protección de datos</a>
-      </div>
-      <div class="disclaimer">
-        Todas las imágenes, planos, medidas y áreas, son referenciales por lo que podrían sufrir cambios al momento de desarrollarse el proyecto,
-        asimismo los elementos decorativos, acabados y mobiliarios son propuestas del departamento de diseño que no se incluyen en la oferta comercial
-        y no comprometen a la empresa inmobiliaria.
-      </div>
-      <p style="margin-top:24px;">© 2026 Grupo Emer Inmobiliario. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-  <!-- BOTONES FLOTANTES -->
   <div class="go-top" id="goTop">↑</div>
   <a href="https://wa.me/51935419810" class="wa-btn" target="_blank">💬</a>
+  <div class="cookie-banner" id="cookieBanner"><span>Usamos cookies para mejorar tu experiencia. Al continuar, aceptas su uso.</span><button id="acceptCookies" class="btn-gold" style="padding:8px 20px;">Aceptar</button></div>
 
-  <!-- COOKIE BANNER -->
-  <div class="cookie-banner" id="cookieBanner">
-    <span>Usamos cookies para mejorar tu experiencia. Al continuar, aceptas su uso.</span>
-    <button id="acceptCookies" class="btn-gold" style="padding:8px 20px;">Aceptar</button>
-  </div>
-
-  <!-- MODAL CLIENTE -->
-  <div class="modal" id="clientModal">
+  <!-- MODAL LOGIN/REGISTRO COMPLETO -->
+  <div class="modal" id="authModal">
     <div class="modal-content">
-      <h3>Acceso a clientes</h3>
-      <input type="text" id="demoUser" placeholder="Usuario">
-      <input type="password" id="demoPass" placeholder="Contraseña">
-      <button id="demoLogin" class="btn-gold">Ingresar</button>
-      <p style="margin-top:12px;">Demo: cualquier usuario/contraseña</p>
-      <button id="closeModal" style="margin-top:12px; background:none; border:none; cursor:pointer;">Cerrar</button>
+      <button class="close-modal-btn" id="closeModalBtn">&times;</button>
+      <h3 id="modalTitle">Bienvenido</h3>
+      <div class="modal-tab"><button id="loginTabBtn" class="active-tab">Iniciar Sesión</button><button id="registerTabBtn">Registrarse</button></div>
+      <div id="loginForm" class="auth-form">
+        <input type="email" id="loginEmail" placeholder="Correo electrónico" autocomplete="email">
+        <input type="password" id="loginPassword" placeholder="Contraseña">
+        <button id="doLoginBtn" class="btn-gold">Ingresar</button>
+        <div id="loginMsg" class="auth-message"></div>
+      </div>
+      <div id="registerForm" class="auth-form" style="display:none;">
+        <input type="text" id="regName" placeholder="Nombre completo">
+        <input type="email" id="regEmail" placeholder="Correo electrónico">
+        <input type="password" id="regPassword" placeholder="Contraseña">
+        <button id="doRegisterBtn" class="btn-gold">Crear cuenta</button>
+        <div id="registerMsg" class="auth-message"></div>
+      </div>
     </div>
   </div>
 
   <script>
-    // ====================== DATOS ======================
-    const projects = [
-      { name: "Edificio Corporativo", img: "imag/edificio.png", category: "edificacion", tag: "Edificación" },
-      { name: "Colegio Contemporáneo", img: "imag/colegio.png", category: "edificacion", tag: "Educación" },
-      { name: "Planta Industrial", img: "imag/industriales.png", category: "infraestructura", tag: "Industrial" },
-      { name: "Supervisión de Obra", img: "imag/consultoria.png", category: "consultoria", tag: "Consultoría" },
-      { name: "Complejo Corporativo", img: "imag/coorparativas.png", category: "edificacion", tag: "Corporativo" },
-      { name: "Infraestructura Vial", img: "imag/civil.png", category: "infraestructura", tag: "Vial" }
-    ];
-    const testimonios = [
-      { name: "Carlos Mendoza", text: "Excelente trabajo, cumplieron los plazos y la calidad es impecable." },
-      { name: "María Fernanda", text: "El equipo de Group Emer es muy profesional, siempre atentos a cada detalle." },
-      { name: "Javier Ríos", text: "Recomiendo ampliamente sus servicios de consultoría y supervisión." }
-    ];
-    const faqs = [
-      { q: "¿Cuánto tiempo toma un proyecto típico?", a: "Depende del alcance, pero en promedio 6 a 12 meses." },
-      { q: "¿Ofrecen garantía?", a: "Sí, respaldamos todos nuestros trabajos con garantía de 3 años." },
-      { q: "¿Trabajan con metodología BIM?", a: "Sí, implementamos BIM en todos nuestros proyectos para garantizar coordinación y cero interferencias." }
-    ];
+    // ---------- DATA RENDER ----------
+    const projects = [{ name: "Edificio Corporativo", img: "imag/edificio.png", category: "edificacion", tag: "Edificación" },{ name: "Colegio Contemporáneo", img: "imag/colegio.png", category: "edificacion", tag: "Educación" },{ name: "Planta Industrial", img: "imag/industriales.png", category: "infraestructura", tag: "Industrial" },{ name: "Supervisión de Obra", img: "imag/consultoria.png", category: "consultoria", tag: "Consultoría" },{ name: "Complejo Corporativo", img: "imag/coorparativas.png", category: "edificacion", tag: "Corporativo" },{ name: "Infraestructura Vial", img: "imag/civil.png", category: "infraestructura", tag: "Vial" }];
+    const testimonios = [{ name: "Carlos Mendoza", text: "Excelente trabajo, cumplieron los plazos y la calidad es impecable." },{ name: "María Fernanda", text: "El equipo de Group Emer es muy profesional, siempre atentos a cada detalle." },{ name: "Javier Ríos", text: "Recomiendo ampliamente sus servicios de consultoría y supervisión." }];
+    const faqs = [{ q: "¿Cuánto tiempo toma un proyecto típico?", a: "Depende del alcance, pero en promedio 6 a 12 meses." },{ q: "¿Ofrecen garantía?", a: "Sí, respaldamos todos nuestros trabajos con garantía de 3 años." },{ q: "¿Trabajan con metodología BIM?", a: "Sí, implementamos BIM en todos nuestros proyectos para garantizar coordinación y cero interferencias." }];
+    function renderPortfolio(f = "all") { const grid = document.getElementById("portfolioGrid"); if(!grid) return; const filtered = f === "all" ? projects : projects.filter(p => p.category === f); grid.innerHTML = filtered.map(p => `<div class="port-item" style="background-image:url('${p.img}');"><div class="port-overlay"><div><p>${p.tag}</p><h3>${p.name}</h3></div></div></div>`).join(""); }
+    document.querySelectorAll(".filter-btn").forEach(btn => { btn.addEventListener("click", () => { document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active")); btn.classList.add("active"); renderPortfolio(btn.getAttribute("data-filter")); }); }); renderPortfolio("all");
+    document.getElementById("testimoniosSlider").innerHTML = testimonios.map(t => `<div class="testimonio-card"><p>${t.text}</p><strong>— ${t.name}</strong></div>`).join("");
+    const faqContainer = document.getElementById("faqList"); if(faqContainer){ faqContainer.innerHTML = faqs.map((f,i) => `<div class="faq-item"><div class="faq-question">${f.q} <span>+</span></div><div class="faq-answer">${f.a}</div></div>`).join(""); document.querySelectorAll(".faq-question").forEach(q => { q.addEventListener("click",()=>{ const parent = q.parentElement; parent.classList.toggle("open"); q.querySelector("span").innerText = parent.classList.contains("open") ? "−" : "+"; }); }); }
+    const counterObserver = new IntersectionObserver((entries) => { if(entries[0].isIntersecting){ const animate=(el,target)=>{ let cur=0; const step=Math.ceil(target/60); const iv=setInterval(()=>{ cur+=step; if(cur>=target){ el.innerText=target; clearInterval(iv); } else el.innerText=cur; },30); }; animate(document.getElementById("yearsCounter"),8); animate(document.getElementById("projectsCounter"),35); animate(document.getElementById("clientsCounter"),100); counterObserver.disconnect(); } }, { threshold: 0.5 }); if(document.getElementById("yearsCounter")) counterObserver.observe(document.getElementById("yearsCounter"));
+    document.getElementById("contactForm")?.addEventListener("submit",(e)=>{ e.preventDefault(); alert("✅ Mensaje enviado. Un asesor te contactará pronto."); e.target.reset(); });
+    // Modo oscuro, cookies, goTop, mobile
+    const themeToggle = document.getElementById("themeToggle"); if(themeToggle){ themeToggle.addEventListener("click",()=>{ document.body.classList.toggle("dark"); themeToggle.innerText = document.body.classList.contains("dark") ? "☀️" : "🌙"; localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light"); }); if(localStorage.getItem("theme") === "dark") document.body.classList.add("dark"); }
+    const cookieBanner = document.getElementById("cookieBanner"); if(!localStorage.getItem("cookiesAccepted") && cookieBanner) cookieBanner.classList.add("show"); document.getElementById("acceptCookies")?.addEventListener("click",()=>{ localStorage.setItem("cookiesAccepted","true"); cookieBanner.classList.remove("show"); });
+    const goTop = document.getElementById("goTop"); window.addEventListener("scroll",()=>{ if(goTop) goTop.classList.toggle("show", window.scrollY > 300); }); goTop?.addEventListener("click",()=>window.scrollTo({ top:0, behavior:"smooth" }));
+    const burger = document.getElementById("burger"), mobileNav = document.getElementById("mobileNav"); burger?.addEventListener("click",()=>mobileNav.classList.toggle("open")); document.querySelectorAll(".mobile-nav a")?.forEach(a=>a.addEventListener("click",()=>mobileNav.classList.remove("open")));
+    const revealObserver = new IntersectionObserver((entries)=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add("visible")),{threshold:0.1}); document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
 
-    // Render portafolio con filtro
-    function renderPortfolio(filter = "all") {
-      const grid = document.getElementById("portfolioGrid");
-      if (!grid) return;
-      const filtered = filter === "all" ? projects : projects.filter(p => p.category === filter);
-      grid.innerHTML = filtered.map(p => `
-        <div class="port-item" style="background-image:url('${p.img}');">
-          <div class="port-overlay">
-            <div>
-              <p>${p.tag}</p>
-              <h3>${p.name}</h3>
-            </div>
-          </div>
-        </div>
-      `).join("");
-    }
-    const filterBtns = document.querySelectorAll(".filter-btn");
-    if (filterBtns.length) {
-      filterBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-          filterBtns.forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          renderPortfolio(btn.getAttribute("data-filter"));
+    // ---------- AUTH (LOGIN / REGISTRO) con localStorage ----------
+    const modalAuth = document.getElementById("authModal");
+    const clientBtns = [document.getElementById("clientBtn"), document.getElementById("mobileClientBtn")];
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const loginTab = document.getElementById("loginTabBtn");
+    const registerTab = document.getElementById("registerTabBtn");
+    const loginFormDiv = document.getElementById("loginForm");
+    const registerFormDiv = document.getElementById("registerForm");
+    const doLogin = document.getElementById("doLoginBtn");
+    const doRegister = document.getElementById("doRegisterBtn");
+    const loginMsg = document.getElementById("loginMsg");
+    const registerMsg = document.getElementById("registerMsg");
+
+    // Función para actualizar UI de sesión en navbar
+    function updateNavbarUser() {
+      const user = localStorage.getItem("loggedUser");
+      const clientBtnElem = document.getElementById("clientBtn");
+      const mobileClientElem = document.getElementById("mobileClientBtn");
+      if(user && clientBtnElem) {
+        const userName = JSON.parse(localStorage.getItem("userData"))?.name || "Usuario";
+        clientBtnElem.innerHTML = `👋 ${userName.split(' ')[0]} <span class="logout-btn" id="navLogoutBtn">🚪</span>`;
+        clientBtnElem.style.background = "rgba(201,168,76,0.4)";
+        if(mobileClientElem) mobileClientElem.innerHTML = `👋 ${userName.split(' ')[0]} (Cerrar)`;
+        const logoutSpans = document.querySelectorAll("#navLogoutBtn");
+        logoutSpans.forEach(span => {
+          span.addEventListener("click", (e) => {
+            e.stopPropagation();
+            localStorage.removeItem("loggedUser");
+            localStorage.removeItem("userData");
+            location.reload();
+          });
         });
-      });
-    }
-    renderPortfolio("all");
-
-    // Testimonios
-    const slider = document.getElementById("testimoniosSlider");
-    if (slider) {
-      slider.innerHTML = testimonios.map(t => `<div class="testimonio-card"><p>${t.text}</p><strong>— ${t.name}</strong></div>`).join("");
-    }
-
-    // FAQ acordeón
-    const faqContainer = document.getElementById("faqList");
-    if (faqContainer) {
-      faqContainer.innerHTML = faqs.map((f, i) => `<div class="faq-item"><div class="faq-question">${f.q} <span>+</span></div><div class="faq-answer">${f.a}</div></div>`).join("");
-      document.querySelectorAll(".faq-question").forEach((q, idx) => {
-        q.addEventListener("click", () => {
-          const parent = q.parentElement;
-          parent.classList.toggle("open");
-          q.querySelector("span").innerText = parent.classList.contains("open") ? "−" : "+";
-        });
-      });
-    }
-
-    // Contadores animados
-    function animateCounter(el, target) {
-      let current = 0;
-      const step = Math.ceil(target / 60);
-      const interval = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          el.innerText = target;
-          clearInterval(interval);
-        } else {
-          el.innerText = current;
+        if(mobileClientElem) {
+          mobileClientElem.onclick = (e) => {
+            e.preventDefault();
+            localStorage.removeItem("loggedUser");
+            localStorage.removeItem("userData");
+            location.reload();
+          };
         }
-      }, 30);
-    }
-    const yearsEl = document.getElementById("yearsCounter");
-    const projectsEl = document.getElementById("projectsCounter");
-    const clientsEl = document.getElementById("clientsCounter");
-    const counterObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        animateCounter(yearsEl, 8);
-        animateCounter(projectsEl, 35);
-        animateCounter(clientsEl, 100);
-        counterObserver.disconnect();
+      } else if(clientBtnElem) {
+        clientBtnElem.innerHTML = "🔐 Mi cuenta";
+        clientBtnElem.style.background = "rgba(201,168,76,0.2)";
+        if(mobileClientElem) mobileClientElem.innerHTML = "🔐 Mi cuenta";
       }
-    }, { threshold: 0.5 });
-    if (yearsEl) counterObserver.observe(yearsEl);
-
-    // Formulario funcional (simulación)
-    const contactForm = document.getElementById("contactForm");
-    if (contactForm) {
-      contactForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert("✅ Mensaje enviado. Un asesor te contactará pronto.");
-        contactForm.reset();
-      });
     }
 
-    // Modal cliente
-    const modal = document.getElementById("clientModal");
-    const openModalBtns = [document.getElementById("clientBtn"), document.getElementById("mobileClientBtn")];
-    openModalBtns.forEach(btn => {
-      if (btn) btn.addEventListener("click", () => { if (modal) modal.style.display = "flex"; });
+    // Abrir modal
+    clientBtns.forEach(btn => btn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      const logged = localStorage.getItem("loggedUser");
+      if(logged) {
+        // Si ya está logueado, no abrir modal, solo mostrar mensaje o redirigir a panel demo
+        alert(`✅ Sesión activa como ${JSON.parse(localStorage.getItem("userData"))?.name}. Para cerrar usa el botón de logout.`);
+        return;
+      }
+      modalAuth.style.display = "flex";
+      loginTab.click();
+      loginMsg.innerText = "";
+      registerMsg.innerText = "";
+    }));
+    closeModalBtn?.addEventListener("click", () => modalAuth.style.display = "none");
+    window.addEventListener("click", (e) => { if(e.target === modalAuth) modalAuth.style.display = "none"; });
+
+    // Tabs
+    loginTab.addEventListener("click", () => {
+      loginTab.classList.add("active-tab");
+      registerTab.classList.remove("active-tab");
+      loginFormDiv.style.display = "flex";
+      registerFormDiv.style.display = "none";
     });
-    const closeModal = document.getElementById("closeModal");
-    if (closeModal) closeModal.addEventListener("click", () => { if (modal) modal.style.display = "none"; });
-    const demoLogin = document.getElementById("demoLogin");
-    if (demoLogin) demoLogin.addEventListener("click", () => {
-      alert("Demo: Redirigiendo a panel de cliente (simulación).");
-      if (modal) modal.style.display = "none";
+    registerTab.addEventListener("click", () => {
+      registerTab.classList.add("active-tab");
+      loginTab.classList.remove("active-tab");
+      loginFormDiv.style.display = "none";
+      registerFormDiv.style.display = "flex";
     });
 
-    // Modo oscuro
-    const themeToggle = document.getElementById("themeToggle");
-    if (themeToggle) {
-      themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-        themeToggle.innerText = document.body.classList.contains("dark") ? "☀️" : "🌙";
-        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
-      });
-      if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark");
-    }
-
-    // Cookies
-    const cookieBanner = document.getElementById("cookieBanner");
-    if (!localStorage.getItem("cookiesAccepted") && cookieBanner) cookieBanner.classList.add("show");
-    const acceptCookies = document.getElementById("acceptCookies");
-    if (acceptCookies) {
-      acceptCookies.addEventListener("click", () => {
-        localStorage.setItem("cookiesAccepted", "true");
-        cookieBanner.classList.remove("show");
-      });
-    }
-
-    // Go top
-    const goTop = document.getElementById("goTop");
-    window.addEventListener("scroll", () => {
-      if (goTop) goTop.classList.toggle("show", window.scrollY > 300);
+    // Registro
+    doRegister.addEventListener("click", () => {
+      const name = document.getElementById("regName").value.trim();
+      const email = document.getElementById("regEmail").value.trim();
+      const pass = document.getElementById("regPassword").value.trim();
+      if(!name || !email || !pass) { registerMsg.innerText = "❌ Completa todos los campos"; return; }
+      if(!email.includes("@")) { registerMsg.innerText = "❌ Email inválido"; return; }
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      if(users.find(u => u.email === email)) { registerMsg.innerText = "❌ El email ya está registrado"; return; }
+      const newUser = { name, email, password: pass };
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
+      registerMsg.innerText = "✅ Registro exitoso. Ahora inicia sesión.";
+      setTimeout(() => { loginTab.click(); }, 1500);
     });
-    if (goTop) goTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-    // Mobile menu
-    const burger = document.getElementById("burger");
-    const mobileNav = document.getElementById("mobileNav");
-    if (burger && mobileNav) {
-      burger.addEventListener("click", () => mobileNav.classList.toggle("open"));
-      document.querySelectorAll(".mobile-nav a").forEach(a => a.addEventListener("click", () => mobileNav.classList.remove("open")));
-    }
+    // Login
+    doLogin.addEventListener("click", () => {
+      const email = document.getElementById("loginEmail").value.trim();
+      const pass = document.getElementById("loginPassword").value.trim();
+      if(!email || !pass) { loginMsg.innerText = "❌ Ingresa correo y contraseña"; return; }
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const found = users.find(u => u.email === email && u.password === pass);
+      if(found) {
+        localStorage.setItem("loggedUser", found.email);
+        localStorage.setItem("userData", JSON.stringify({ name: found.name, email: found.email }));
+        loginMsg.innerText = "✅ Bienvenido, redirigiendo...";
+        setTimeout(() => { modalAuth.style.display = "none"; updateNavbarUser(); location.reload(); }, 800);
+      } else {
+        loginMsg.innerText = "❌ Credenciales incorrectas o usuario no registrado.";
+      }
+    });
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll(".reveal");
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => revealObserver.observe(el));
+    updateNavbarUser();
+    // Si hay usuario, ajustar botón móvil también
   </script>
 </body>
 </html>
